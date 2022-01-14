@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{B12702AD-ABFB-343A-A199-8E24837244A3}</ProjectGuid>
+    <Keyword>Qt4VSv1.0</Keyword>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <PropertyGroup Condition="'$(QtMsBuild)'=='' or !Exists('$(QtMsBuild)\qt.targets')">
+    <QtMsBuild>$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') or !Exists('$(QtMsBuild)\qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.props')">
+    <Import Project="$(QtMsBuild)\qt.props" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Label="Shared" />
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_CORE_LIB;QT_WIDGETS_LIB;QT_SERIALPORT_LIB;QT_GUI_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\smartmore\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea\Includes;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;opencv_world420.lib;MvCameraControl.lib;MESON_HIGH_LIGHT_SEGMENTATION.lib;MESON_LOCATION.lib;MESON_NORMAL_SEGMENTATION.lib;MESON_SEGMENTATION.lib;ZriseVimoSegmentationModule.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5SerialPort.lib;Qt5Network.lib;Qt5Gui.lib;Qt5Networkd.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\smartmore\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea\Includes;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_CORE_LIB;QT_WIDGETS_LIB;QT_SERIALPORT_LIB;QT_GUI_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_SERIALPORT_LIB;QT_GUI_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea\Includes;$(SolutionDir)MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea;$(SolutionDir)MesonDetectionOnLine\smartmodel\include;$(SolutionDir)MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <DebugInformationFormat>None</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <Optimization>MaxSpeed</Optimization>
+      <OpenMPSupport>false</OpenMPSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <AdditionalLibraryDirectories>$(QTDIR)\lib;$(SolutionDir)MesonDetectionOnLine\3rdParty\opencv-4.2.0\lib;$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea\lib;$(SolutionDir)MesonDetectionOnLine\smartmodel\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalDependencies>qtmain.lib;opencv_world420.lib;MvCameraControl.lib;MESON_HIGH_LIGHT_SEGMENTATION.lib;MESON_LOCATION.lib;MESON_NORMAL_SEGMENTATION.lib;MESON_SEGMENTATION.lib;ZriseVimoSegmentationModule.lib;Qt5Core.lib;Qt5Widgets.lib;Qt5SerialPort.lib;Qt5Gui.lib;Qt5Network.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+    </Link>
+    <QtMoc>
+      <OutputFile>.\GeneratedFiles\$(ConfigurationName)\moc_%(Filename).cpp</OutputFile>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <IncludePath>.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea\Includes;$(SolutionDir)MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea;$(SolutionDir)MesonDetectionOnLine\smartmodel\include;$(SolutionDir)MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;%(AdditionalIncludeDirectories)</IncludePath>
+      <Define>UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_WIDGETS_LIB;QT_SERIALPORT_LIB;QT_GUI_LIB;QT_NETWORK_LIB;%(PreprocessorDefinitions)</Define>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\ui_%(Filename).h</OutputFile>
+    </QtUic>
+    <QtRcc>
+      <ExecutionDescription>Rcc'ing %(Identity)...</ExecutionDescription>
+      <OutputFile>.\GeneratedFiles\qrc_%(Filename).cpp</OutputFile>
+    </QtRcc>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="3rdParty\HikCamrea\MvCamera.cpp" />
+    <ClCompile Include="AlgoFirstStation.cpp" />
+    <ClCompile Include="AlgoSecondStation.cpp" />
+    <ClCompile Include="CMainWindow.cpp" />
+    <ClCompile Include="Config.cpp" />
+    <ClCompile Include="ImageCapture.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="MyLabel.cpp" />
+    <ClCompile Include="ParameterSetting.cpp" />
+    <ClCompile Include="RunAlgo.cpp" />
+    <ClCompile Include="SaveImage.cpp" />
+    <ClCompile Include="SerialManager.cpp" />
+    <ClCompile Include="SoftwareRegister.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="CMainWindow.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="CMainWindow.ui" />
+    <QtUic Include="ParameterSetting.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="CMainWindow.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\3rdParty\HikCamrea\MvCamera.h" />
+    <ClInclude Include="AlgoSecondStation.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;D:\SmartMore\Code\3rdParty\HikCamrea\Includes;D:\SmartMore\Code\3rdParty\opencv-4.2.0\include;D:\SmartMore\Code\3rdParty\HikCamrea;$(SolutionDir)\MesonDetectionOnLine\smartmodel\include</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB</Define>
+    </ClInclude>
+    <ClInclude Include="AlgoFirstStation.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB</Define>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName)\.;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork;$(QTDIR)\include\QtWidgets;D:\SmartMore\Code\3rdParty\HikCamrea\Includes;D:\SmartMore\Code\3rdParty\opencv-4.2.0\include;D:\SmartMore\Code\3rdParty\HikCamrea;$(SolutionDir)\MesonDetectionOnLine\smartmodel\include</IncludePath>
+      <Define Condition="'$(Configuration)|$(Platform)'=='Release|x64'">UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;QT_DLL;QT_NO_DEBUG;NDEBUG;QT_CORE_LIB;QT_GUI_LIB;QT_NETWORK_LIB;QT_WIDGETS_LIB</Define>
+    </ClInclude>
+    <ClInclude Include="Config.h" />
+    <QtMoc Include="SoftwareRegister.h" />
+    <QtMoc Include="SerialManager.h" />
+    <QtMoc Include="RunAlgo.h">
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\smartmodel\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\smartmore\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;D:\mhy\8.18\8.18\MesonDetectionOnLine\3rdParty\HikCamrea\Includes;.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork</IncludePath>
+      <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\GeneratedFiles;.;$(QTDIR)\include;.\GeneratedFiles\$(ConfigurationName);$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea\Includes;$(SolutionDir)MesonDetectionOnLine\3rdParty\opencv-4.2.0\include;$(SolutionDir)MesonDetectionOnLine\3rdParty\HikCamrea;$(SolutionDir)MesonDetectionOnLine\smartmodel\include;$(SolutionDir)MesonDetectionOnLine\smartmodel\include\spdlog-1.7.0\include;$(QTDIR)\include\QtCore;$(QTDIR)\include\QtWidgets;$(QTDIR)\include\QtSerialPort;$(QTDIR)\include\QtGui;$(QTDIR)\include\QtANGLE;$(QTDIR)\include\QtNetwork</IncludePath>
+    </QtMoc>
+    <ClInclude Include="SaveImage.h" />
+    <QtMoc Include="MyLabel.h" />
+    <QtMoc Include="ParameterSetting.h" />
+    <ClInclude Include="resource.h" />
+    <QtMoc Include="ImageCapture.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MesonDetectionOnLine.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Resources\app.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
+    <Import Project="$(QtMsBuild)\qt.targets" />
+  </ImportGroup>
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties MocDir=".\GeneratedFiles\$(ConfigurationName)" UicDir=".\GeneratedFiles" RccDir=".\GeneratedFiles" lupdateOptions="" lupdateOnBuild="0" lreleaseOptions="" Qt5Version_x0020_x64="msvc2017_64" MocOptions="" />
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
